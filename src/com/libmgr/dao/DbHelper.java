@@ -25,7 +25,7 @@ public class DbHelper {
     }
     
     
-    public static ResultSet executeQuery(String sql_query) throws SQLException {
+    public static ResultSet executeQuery(String sql_query) {
         
         try {
             Connection conn  = connect("");
@@ -36,7 +36,7 @@ public class DbHelper {
         } 
         catch (SQLException e) {
             System.out.printf("Error occured executing query %s\n%s", sql_query, e);
-         throw e;
+            return  null; //throw e;
         }
     }
     
@@ -73,5 +73,26 @@ public class DbHelper {
             throw e; 
         }
     }
+    
+    /*
+    public static void main(String[] args) {
+        String all_books_query = "select * from books";
+        try {
+            ResultSet result = executeQuery(all_books_query);
+            
+            System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- --  -- -- -- -- -- -- -- -- -- -- -- --");
+            while(result != null && result.next()){
+                System.out.printf("| %s | %s | %s | %s | %s |\n", 
+                        result.getInt("bookId"), result.getString("BookName"), result.getString("ISBN"), result.getString("AuthorName"), result.getString("pubDate"));
+                System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- --  -- -- -- -- -- -- -- -- -- -- -- --");
+            }
+            
+        } 
+        catch (SQLException e) {
+            System.out.println("Error occured querying all books \n"+e.getMessage());
+        }
+        
+    }
+*/
     
 }
