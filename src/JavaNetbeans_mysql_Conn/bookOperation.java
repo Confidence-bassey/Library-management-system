@@ -32,6 +32,11 @@ public class bookOperation extends javax.swing.JFrame {
      */
     public bookOperation() {
         initComponents();
+        
+        bookDisplaybttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisplaybttnActionPerformed(evt);
+            }});
     }
     
 
@@ -335,6 +340,11 @@ public class bookOperation extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EnterpubDateActionPerformed
 
+    private void SearchLibbttnActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+        BooksWindow booksListWindow = new BooksWindow();
+        booksListWindow.setVisible(true);
+    }   
     /**
      * @param args the command line arguments
      */
@@ -370,6 +380,13 @@ public class bookOperation extends javax.swing.JFrame {
         });
     }
 
+    
+    private void DisplaybttnActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+        BooksWindow booksListWindow = new BooksWindow();
+        booksListWindow.setVisible(true);
+    }   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Addbookbttn;
     private javax.swing.JLabel Authorname;

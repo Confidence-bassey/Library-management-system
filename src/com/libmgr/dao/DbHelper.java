@@ -25,7 +25,7 @@ public class DbHelper {
     }
     
     
-    public static ResultSet executeQuery(String sql_query) {
+    public static ResultSet executeQuery(String sql_query) throws SQLException{
         
         try {
             Connection conn  = connect("");
@@ -36,7 +36,7 @@ public class DbHelper {
         } 
         catch (SQLException e) {
             System.out.printf("Error occured executing query %s\n%s", sql_query, e);
-            return  null; //throw e;
+            throw e;
         }
     }
     
