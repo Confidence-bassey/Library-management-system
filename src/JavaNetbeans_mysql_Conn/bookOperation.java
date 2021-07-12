@@ -284,7 +284,7 @@ public class bookOperation extends javax.swing.JFrame {
         try{
             jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?serverTimezone=UTC", "root","develop001");
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?serverTimezone=UTC", "root","BillonaireConfi1");
             Statement state = (Statement) connect.createStatement();
             String query = 
                     "INSERT INTO books(BookName,AuthorName,ISBN,pubDate)Values("+
