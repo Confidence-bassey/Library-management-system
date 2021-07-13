@@ -196,8 +196,8 @@ public class CreateAccountPage extends javax.swing.JFrame {
 
         private String CreateCustomerdb(String firstName, String lastName, String email, String password){
         try{
-            jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+            //Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?useEncoding=true&amp; characterEncoding =UTF-8", "root","BillonaireConfi1");
             Statement state = (Statement) connect.createStatement();
             String query = 
