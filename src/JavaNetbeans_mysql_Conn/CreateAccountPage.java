@@ -8,6 +8,7 @@ package JavaNetbeans_mysql_Conn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import java.sql.Statement;
 
 /**
  *
@@ -198,11 +199,10 @@ public class CreateAccountPage extends javax.swing.JFrame {
         try{
             //jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
             //Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?useEncoding=true&amp; characterEncoding =UTF-8", "root","BillonaireConfi1");
-            Statement state = (Statement) connect.createStatement();
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1", "root","BillonaireConfi1");
+            Statement state = connect.createStatement();
             String query = 
-                    "INSERT INTO books"
-                    + "Values("+
+                    "INSERT INTO connector1(FirstName,LastName,Email,Password) Values("+
                     "'"+firstName+"','"+lastName+"','"+email+"','"+password+"')";
             int rows_affected = state.executeUpdate(query);
             if(rows_affected<0){
@@ -232,7 +232,7 @@ public class CreateAccountPage extends javax.swing.JFrame {
        String email = enterEmail.getText();
         String password = enterPassword.getText();
         CreateCustomerdb(firstName,lastName,email,password);
-     //   JOptionPane.showMessageDialog(this,"Thank you!! "+ bookName+" has now been added to your store");
+        JOptionPane.showMessageDialog(this,"Thank you "+ firstName+"!! you have successfully created an account");
         if(firstName.isBlank()){
             JOptionPane.showMessageDialog(this,"Enter a valid name","Enter name",0);
             return;

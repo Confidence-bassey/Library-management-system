@@ -7,18 +7,15 @@ package JavaNetbeans_mysql_Conn;
 
 /**
  *
- * @author simonbassey
+ * @author DELL
  */
-public class BooksWindow extends javax.swing.JFrame {
+public class MDIApps extends javax.swing.JFrame {
 
     /**
-     * Creates new form BooksWindow
+     * Creates new form MDIApps
      */
-    public BooksWindow() {
+    public MDIApps() {
         initComponents();
-        
-        
-        showBooksListScreen();
     }
 
     /**
@@ -34,9 +31,8 @@ public class BooksWindow extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
@@ -50,36 +46,20 @@ public class BooksWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fileMenu.setMnemonic('f');
-        fileMenu.setText("Books");
+        fileMenu.setText("File");
 
         openMenuItem.setMnemonic('o');
-        openMenuItem.setText("All Books");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
-            }
-        });
+        openMenuItem.setText("Open");
         fileMenu.add(openMenuItem);
 
+        saveMenuItem.setMnemonic('s');
+        saveMenuItem.setText("Save");
+        fileMenu.add(saveMenuItem);
+
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Add Book");
+        saveAsMenuItem.setText("Save As ...");
+        saveAsMenuItem.setDisplayedMnemonicIndex(5);
         fileMenu.add(saveAsMenuItem);
-
-        jMenuItem2.setText("Searchbook");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        fileMenu.add(jMenuItem2);
-
-        jMenuItem1.setText("Updatebook");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        fileMenu.add(jMenuItem1);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Exit");
@@ -93,7 +73,7 @@ public class BooksWindow extends javax.swing.JFrame {
         menuBar.add(fileMenu);
 
         editMenu.setMnemonic('e');
-        editMenu.setText("Authors");
+        editMenu.setText("Edit");
 
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Cut");
@@ -132,7 +112,7 @@ public class BooksWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,33 +126,6 @@ public class BooksWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-         this.showBooksListScreen();
-    }//GEN-LAST:event_openMenuItemActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        bookUpdateScreen bookscreen = new bookUpdateScreen();
-        bookscreen.setVisible(true);
-        bookscreen.setClosable(true);
-        setContentPane(bookscreen);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        bookSearchScreen searchScreen = new bookSearchScreen();
-        searchScreen.setVisible(true);
-        searchScreen.setClosable(true);
-        setContentPane(searchScreen);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void showBooksListScreen() {
-        var booksScreen = new BookListScreen();
-         booksScreen.setClosable(true);
-         booksScreen.setVisible(true);
-         setContentPane(booksScreen);
-    }
     /**
      * @param args the command line arguments
      */
@@ -190,20 +143,20 @@ public class BooksWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BooksWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MDIApps.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BooksWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MDIApps.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BooksWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MDIApps.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BooksWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MDIApps.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BooksWindow().setVisible(true);
+                new MDIApps().setVisible(true);
             }
         });
     }
@@ -219,12 +172,11 @@ public class BooksWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

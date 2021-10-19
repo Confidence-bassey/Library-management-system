@@ -63,9 +63,9 @@ public class DbHelper {
             props.put("user", "root");
             props.put("password", "P@ssw0rd");
         
-            db_url = !db_url.isBlank() ? db_url : "jdbc:mysql://localhost:3306/lib_mgr_db";
+            db_url = !db_url.isBlank() ? db_url : "jdbc:mysql://localhost:3306/connector1?serverTimezone=UTC";
         
-            Connection conn = DriverManager.getConnection(db_url, props);
+            Connection conn = DriverManager.getConnection(db_url,"root","BillonaireConfi1");
             return conn;
         } 
         catch (SQLException e) {

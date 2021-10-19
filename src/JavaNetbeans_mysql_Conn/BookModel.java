@@ -44,6 +44,17 @@ public class BookModel {
         this.pubDate = pubDate;
     }
     
+    private int Id;
+    public void setId(int Id){
+        this.Id = Id;
+    }
+    
+    public int getId(){
+    
+        return this.Id;
+    
+    }
+    
     
 }
 

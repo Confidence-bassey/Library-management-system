@@ -135,10 +135,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Exitbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="SearchLibbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="bookDisplaybttn" pref="105" max="32767" attributes="0"/>
-                                  <Component id="Addbookbttn" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="bookDisplaybttn" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="Deletebookbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                               <Component id="Updatebookbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
@@ -149,9 +146,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Component id="Addbookbttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="bookDisplaybttn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="SearchLibbttn" min="-2" max="-2" attributes="0"/>
@@ -167,14 +162,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="Addbookbttn">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="AddBook"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddbookbttnActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JButton" name="bookDisplaybttn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DisplayBooks"/>
@@ -189,11 +176,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeletebookbttnActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Updatebookbttn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Update"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdatebookbttnActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Exitbttn">
                   <Properties>
@@ -233,6 +226,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="EnterISBN" alignment="0" pref="319" max="32767" attributes="0"/>
                                       <Component id="EnterpubDate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Addbookbttn" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -271,7 +265,9 @@
                               <Component id="pubDate" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="EnterpubDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="97" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                          <Component id="Addbookbttn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -306,6 +302,14 @@
                 <Component class="javax.swing.JTextField" name="EnterpubDate">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EnterpubDateActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="Addbookbttn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="AddBook"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddbookbttnActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

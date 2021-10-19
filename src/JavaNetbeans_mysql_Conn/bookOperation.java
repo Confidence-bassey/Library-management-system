@@ -24,6 +24,9 @@ import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
+import java.sql.Statement;
+import com.libmgr.dao.DbHelper;
+
 
 public class bookOperation extends javax.swing.JFrame {
 
@@ -52,7 +55,6 @@ public class bookOperation extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        Addbookbttn = new javax.swing.JButton();
         bookDisplaybttn = new javax.swing.JButton();
         SearchLibbttn = new javax.swing.JButton();
         Deletebookbttn = new javax.swing.JButton();
@@ -67,6 +69,7 @@ public class bookOperation extends javax.swing.JFrame {
         EnterAuthor = new javax.swing.JTextField();
         EnterISBN = new javax.swing.JTextField();
         EnterpubDate = new javax.swing.JTextField();
+        Addbookbttn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
 
@@ -78,20 +81,23 @@ public class bookOperation extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
 
-        Addbookbttn.setText("AddBook");
-        Addbookbttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddbookbttnActionPerformed(evt);
-            }
-        });
-
         bookDisplaybttn.setText("DisplayBooks");
 
         SearchLibbttn.setText("Search");
 
         Deletebookbttn.setText("Delete");
+        Deletebookbttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletebookbttnActionPerformed(evt);
+            }
+        });
 
         Updatebookbttn.setText("Update");
+        Updatebookbttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdatebookbttnActionPerformed(evt);
+            }
+        });
 
         Exitbttn.setText("Exit");
         Exitbttn.addActionListener(new java.awt.event.ActionListener() {
@@ -109,9 +115,7 @@ public class bookOperation extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Exitbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchLibbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bookDisplaybttn, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                        .addComponent(Addbookbttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bookDisplaybttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Deletebookbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Updatebookbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -119,9 +123,7 @@ public class bookOperation extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(Addbookbttn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addComponent(bookDisplaybttn)
                 .addGap(18, 18, 18)
                 .addComponent(SearchLibbttn)
@@ -150,6 +152,13 @@ public class bookOperation extends javax.swing.JFrame {
             }
         });
 
+        Addbookbttn.setText("AddBook");
+        Addbookbttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddbookbttnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -166,7 +175,8 @@ public class bookOperation extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(EnterISBN, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                            .addComponent(EnterpubDate))
+                            .addComponent(EnterpubDate)
+                            .addComponent(Addbookbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
@@ -194,7 +204,9 @@ public class bookOperation extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pubDate)
                     .addComponent(EnterpubDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(Addbookbttn)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -287,10 +299,11 @@ public class bookOperation extends javax.swing.JFrame {
     
     private String CreateBookRecord(String bookName, String authorName, String Isbn, String pubdate){
         try{
-            jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?serverTimezone=UTC", "root","BillonaireConfi1");
-            Statement state = (Statement) connect.createStatement();
+            //jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+           // Class.forName("com.mysql.jdbc.Driver");
+            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?ServerTimeZone=UTC", "root","BillonaireConfi1");
+            
+            Statement state = connect.createStatement();
             String query = 
                     "INSERT INTO books(BookName,AuthorName,ISBN,pubDate)Values("+
                     "'"+bookName+"','"+authorName+"','"+Isbn+"','"+pubdate+"')";
@@ -308,6 +321,126 @@ public class bookOperation extends javax.swing.JFrame {
     }    
 
         
+     private void deleteBk(){
+        try {
+           /* String booksQuery = "delete from books where books.bookId = id";
+            var booksResultSet = DbHelper.executeQuery(booksQuery); */
+            //String id;
+            //id = JOptionPane.showInputDialog("Enter book Id");
+            
+        //String bookName = this.Enterbkname.getText();
+       // String authorName = EnterAuthor.getText();
+        String Id = this.EnterISBN.getText();
+       // String pubdate = EnterpubDate.getText();
+          Id =  JOptionPane.showInputDialog("Enter book Id");
+         // Id = "120-4567-89103";
+          Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?ServerTimeZone=UTC", "root","BillonaireConfi1");
+            String booksQuery = "delete from books where bookId=?";
+            PreparedStatement state = connect.prepareStatement(booksQuery);
+           // String booksQuery = "delete from books where bookId = ?"; 
+            
+           System.out.println("preparedStatement before binding = "+ state.toString());
+           
+          // state.setString(1, bookName);
+          // state.setString(2,authorName);
+           state.setInt(1, Integer.parseInt(Id));
+           System.out.println("preparedStatement after binding = "+ state.toString());
+
+          // state.setString(4, pubdate); 
+            
+            int rows_affected = state.executeUpdate();
+            
+            if(rows_affected<0){
+                JOptionPane.showMessageDialog(this,"Failed to delete book");   
+            }else{
+                JOptionPane.showMessageDialog(this, "Deletion successful");
+            }
+        }catch(Exception exception){
+                System.out.println( exception);
+        }
+     }
+     
+     public void Updatebook(){
+         
+         try {
+           /* String booksQuery = "delete from books where books.bookId = id";
+            var booksResultSet = DbHelper.executeQuery(booksQuery); */
+            //String id;
+            //id = JOptionPane.showInputDialog("Enter book Id");
+            
+        String bookName = this.Enterbkname.getText();
+        String authorName = EnterAuthor.getText();
+        String Isbn = this.EnterISBN.getText();
+        String pubdate = EnterpubDate.getText();
+          String Id =  JOptionPane.showInputDialog("Enter book Id");
+          Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/connector1?ServerTimeZone=UTC", "root","BillonaireConfi1");
+         // Connection connect =DBHelper.getConnection();
+          String booksUpdate = "update books set BookName = ?, AuthorName = ?, ISBN = ?, pubDate = ? where bookId =?";
+            PreparedStatement state = connect.prepareStatement(booksUpdate);
+       
+            //    System.out.println("preparedStatement before binding = "+ state.toString());
+           state.setInt(1, Integer.parseInt(Id));
+           state.setString(2, bookName);
+           state.setString(3,authorName);
+           state.setString(4, Isbn);
+           state.setString(5, pubdate); 
+            
+            int rows_affected = state.executeUpdate();
+            if(rows_affected<0){
+                JOptionPane.showMessageDialog(this,"Update Failed");   
+            }else{
+                JOptionPane.showMessageDialog(this, "Book Update successful");
+            }
+        }catch(Exception exception){
+                System.out.println( exception);
+        }
+
+         
+     }
+     
+    public Vector<Vector<Object>> SearchBooks(String searchKey){
+         try{
+             Connection connect = DbHelper.getConnection("");
+              
+             //"select * from books where BookName like ? or AuthorName like ? or ISBN = ? or pubDate like ? or bookId = ?";
+              
+             String searchQuery = "select * from books where ISBN=? or BookName like ? or AuthorName like ?";
+             PreparedStatement statement = connect.prepareStatement(searchQuery);
+             //var booksResultSet = DbHelper.executeQuery(searchQuery);
+             
+             statement.setString(1, searchKey);
+             statement.setString(2, "%"+searchKey+"%");
+             statement.setString(3,"%"+searchKey+"%");
+             
+             System.out.println("Prepared Statement = "+statement.toString());
+            // ResultSet Qresult = statement.executeQuery();
+             
+             ResultSet Qresult = statement.executeQuery();
+             Vector<Vector<Object>> searchResult = new Vector<Vector<Object>>();
+             
+             while(Qresult.next()){
+                 Vector rowVector = new Vector();
+                 rowVector.add(Qresult.getInt("bookId"));
+                 rowVector.add(Qresult.getString("BookName"));
+                 rowVector.add(Qresult.getString("AuthorName"));
+                 rowVector.add(Qresult.getString("ISBN"));
+                 rowVector.add(Qresult.getString("puDate"));
+                 
+                 searchResult.add(rowVector);
+                 
+             }
+             
+               return searchResult;
+         }catch(Exception e){
+             System.out.println(e);
+              return new Vector<>();
+         }
+              
+     } 
+     
+
+
+           
     private void ExitbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitbttnActionPerformed
         // TODO add your handling code here:
         String exit = this.Exitbttn.getActionCommand();
@@ -317,7 +450,7 @@ public class bookOperation extends javax.swing.JFrame {
     private void AddbookbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbookbttnActionPerformed
         // TODO add your handling code here:        String addbook = this.Addbookbutton.getActionCommand();
         String bookName = this.Enterbkname.getText();
-          String authorName = EnterAuthor.getText();
+        String authorName = EnterAuthor.getText();
         String Isbn = EnterISBN.getText();
         String pubdate = EnterpubDate.getText();
         CreateBookRecord(bookName,authorName,Isbn,pubdate);
@@ -339,6 +472,22 @@ public class bookOperation extends javax.swing.JFrame {
     // System.out.println(DateForm.format(Currentdate));
 
     }//GEN-LAST:event_EnterpubDateActionPerformed
+
+    private void DeletebookbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebookbttnActionPerformed
+       deleteBk();
+           
+            
+      // Deletebook deleteBks = new Deletebook();
+      // deleteBks.setVisible(true);
+    }//GEN-LAST:event_DeletebookbttnActionPerformed
+
+    private void UpdatebookbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatebookbttnActionPerformed
+        bookUpdateScreen bookScreen = new bookUpdateScreen();
+        bookScreen.setVisible(true);
+        this.setVisible(false);
+       // TODO add your handling code here:
+        //Updatebook();
+    }//GEN-LAST:event_UpdatebookbttnActionPerformed
 
     private void SearchLibbttnActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:

@@ -1,0 +1,60 @@
+[33mcommit d52cdbe2c445651e3cc52ada5698c60d1e861341[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 4968d56 3e8ae49
+Author: DELL <DELL@confidenceb>
+Date:   Tue Jul 13 09:35:01 2021 +0100
+
+    jdbc issues rectified
+
+[33mcommit 4968d56b5f3fed37e5aefdf119ca362e69186383[m
+Author: DELL <DELL@confidenceb>
+Date:   Mon Jul 12 21:15:17 2021 +0100
+
+    jdbc issue rectified
+
+[33mcommit 3e8ae49d71ba77cc74dd3bd92182b777617a3557[m[33m ([m[1;31morigin/develop/fix-jdbc-issue[m[33m)[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 16:59:30 2021 +0000
+
+    Update tiny snippets to launch books view screen from books operation page
+
+[33mcommit c4445552006b33cf0befaf68c2f4bfc46bfb8472[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 16:58:38 2021 +0000
+
+    Implemented a multi-document interface to display books retrieved from the db
+
+[33mcommit 2a2136aaf56191d3382da87fd24fb873a4d20e37[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 13:04:17 2021 +0000
+
+    added a tiny code snippet to test that jbdc abstraction works as expected
+
+[33mcommit d05a288029f92a653b0934234e56e6e8bf4dd193[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 12:32:42 2021 +0000
+
+    deleted all cached non-code changes
+
+[33mcommit 40686e63e44d382a8dee06cbd77b9d5c42d8fe42[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 12:23:10 2021 +0000
+
+    added packages to abstract data-access and store model classes
+
+[33mcommit 630318f1668eb1d9d12688458d095e8ec1f09cb4[m
+Author: simonbassey <simon.dev.bassey@gmail.com>
+Date:   Sun Jul 11 12:21:49 2021 +0000
+
+    Added a .gitignore file to track only code changes
+
+[33mcommit bf1931f0251670a42b022400117615e8e994b945[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mrectified_jdbc-issue[m[33m)[m
+Author: DELL <DELL@confidenceb>
+Date:   Sat Jul 10 09:41:11 2021 +0100
+
+    second commit
+
+[33mcommit 03ee0aa0179acad142dbb25cfa4d05702276348a[m
+Author: DELL <DELL@confidenceb>
+Date:   Thu Jul 8 20:16:38 2021 +0100
+
+    This project is a library project for students and researchers.
