@@ -56,9 +56,6 @@ public class bookOperation extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         bookDisplaybttn = new javax.swing.JButton();
-        SearchLibbttn = new javax.swing.JButton();
-        Deletebookbttn = new javax.swing.JButton();
-        Updatebookbttn = new javax.swing.JButton();
         Exitbttn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Bookname = new javax.swing.JLabel();
@@ -83,22 +80,6 @@ public class bookOperation extends javax.swing.JFrame {
 
         bookDisplaybttn.setText("DisplayBooks");
 
-        SearchLibbttn.setText("Search");
-
-        Deletebookbttn.setText("Delete");
-        Deletebookbttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletebookbttnActionPerformed(evt);
-            }
-        });
-
-        Updatebookbttn.setText("Update");
-        Updatebookbttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdatebookbttnActionPerformed(evt);
-            }
-        });
-
         Exitbttn.setText("Exit");
         Exitbttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,29 +92,23 @@ public class bookOperation extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Exitbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchLibbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bookDisplaybttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Deletebookbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Updatebookbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(bookDisplaybttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(Exitbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(bookDisplaybttn)
-                .addGap(18, 18, 18)
-                .addComponent(SearchLibbttn)
-                .addGap(18, 18, 18)
-                .addComponent(Deletebookbttn)
-                .addGap(18, 18, 18)
-                .addComponent(Updatebookbttn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Exitbttn)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(bookDisplaybttn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(Exitbttn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
@@ -473,22 +448,6 @@ public class bookOperation extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EnterpubDateActionPerformed
 
-    private void DeletebookbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebookbttnActionPerformed
-       deleteBk();
-           
-            
-      // Deletebook deleteBks = new Deletebook();
-      // deleteBks.setVisible(true);
-    }//GEN-LAST:event_DeletebookbttnActionPerformed
-
-    private void UpdatebookbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdatebookbttnActionPerformed
-        bookUpdateScreen bookScreen = new bookUpdateScreen();
-        bookScreen.setVisible(true);
-        this.setVisible(false);
-       // TODO add your handling code here:
-        //Updatebook();
-    }//GEN-LAST:event_UpdatebookbttnActionPerformed
-
     private void SearchLibbttnActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
         BooksWindow booksListWindow = new BooksWindow();
@@ -540,15 +499,12 @@ public class bookOperation extends javax.swing.JFrame {
     private javax.swing.JButton Addbookbttn;
     private javax.swing.JLabel Authorname;
     private javax.swing.JLabel Bookname;
-    private javax.swing.JButton Deletebookbttn;
     private javax.swing.JTextField EnterAuthor;
     private javax.swing.JTextField EnterISBN;
     private javax.swing.JTextField Enterbkname;
     private javax.swing.JTextField EnterpubDate;
     private javax.swing.JButton Exitbttn;
     private javax.swing.JLabel Isbn;
-    private javax.swing.JButton SearchLibbttn;
-    private javax.swing.JButton Updatebookbttn;
     private javax.swing.JButton bookDisplaybttn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -130,16 +130,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Exitbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="SearchLibbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="bookDisplaybttn" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="Deletebookbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="Updatebookbttn" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bookDisplaybttn" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Component id="Exitbttn" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="51" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -147,16 +149,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="bookDisplaybttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="SearchLibbttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="Deletebookbttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="Updatebookbttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Exitbttn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <Component id="bookDisplaybttn" min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="Exitbttn" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace pref="82" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -166,27 +162,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DisplayBooks"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="SearchLibbttn">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Search"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="Deletebookbttn">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Delete"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeletebookbttnActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="Updatebookbttn">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Update"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdatebookbttnActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="Exitbttn">
                   <Properties>
